@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship Classification AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚢 Ship Classification AI</h1>
+            <p>Advanced VGG16-powered ship identification system</p>
+        </div>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <h2>Upload Ship Image</h2>
+                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                    <div class="upload-icon">📁</div>
+                    <p>Click here or drag and drop your ship image</p>
+                    <small>Supports only JPG(max 10MB)</small>
+                </div>
+                <input type="file" id="fileInput" accept="image/*">
+                <div class="preview-container">
+                    <img id="imagePreview" alt="Preview">
+                </div>
+                <button class="btn" id="classifyBtn" disabled>Classify Ship</button>
+                <div class="error-message" id="errorMessage"></div>
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Analyzing image...</p>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h2>Classification Result</h2>
+                <div id="resultPlaceholder">
+                    <p style="text-align: center; color: #666; padding: 40px;">
+                        Upload an image to see classification results
+                    </p>
+                </div>
+                <div class="result-content" id="resultContent">
+                    <div class="prediction-result" id="predictionResult">
+                        <h3 id="predictedClass"></h3>
+                        <div class="confidence-score" id="confidenceScore"></div>
+                    </div>
+                    <div class="ship-details" id="shipDetails">
+                        <h4>About this ship type:</h4>
+                        <p id="shipDescription"></p>
+                        <h4>Key Features:</h4>
+                        <ul class="features-list" id="featuresList"></ul>
+                    </div>
+                    <div class="all-predictions" id="allPredictions">
+                        <h4>All Predictions:</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ship-types">
+            <h2>Ship Types We Can Identify</h2>
+            <div class="ship-grid">
+                <div class="ship-card">
+                    <h3>🚢 Cargo Ships</h3>
+                    <p>Large vessels designed to carry goods and materials across oceans. These ships are the backbone of global trade.</p>
+                    <ul class="features-list">
+                        <li>Container storage</li>
+                        <li>Heavy lifting equipment</li>
+                        <li>Large cargo holds</li>
+                    </ul>
+                </div>
+                <div class="ship-card">
+                    <h3>⚓ Military Ships</h3>
+                    <p>Naval vessels designed for defense and combat operations. Equipped with advanced weaponry and radar systems.</p>
+                    <ul class="features-list">
+                        <li>Weapon systems</li>
+                        <li>Radar equipment</li>
+                        <li>Armored hull</li>
+                    </ul>
+                </div>
+                <div class="ship-card">
+                    <h3>⛴️ Carriers</h3>
+                    <p>Carriers are large ships designed to transport cargo, vehicles, or personnel across long distances, often supporting logistical and operational needs at sea.</p>
+                    <ul class="features-list">
+                        <li>Cargo holds</li>
+                        <li>Vehicle decks</li>
+                        <li>Catapult systems</li>
+                    </ul>
+                </div>
+                <div class="ship-card">
+                    <h3>🛳️ Cruise Ships</h3>
+                    <p>Passenger ships designed for leisure travel and entertainment, featuring luxury amenities and accommodations.</p>
+                    <ul class="features-list">
+                        <li>Passenger cabins</li>
+                        <li>Entertainment facilities</li>
+                        <li>Dining areas</li>
+                    </ul>
+                </div>
+                <div class="ship-card">
+                    <h3>📂️ Tanker Ships</h3>
+                    <p>Specialized vessels designed to transport liquid cargo such as oil, chemicals, or liquefied natural gas.</p>
+                    <ul class="features-list">
+                        <li>Liquid storage tanks</li>
+                        <li>Pumping systems</li>
+                        <li>Safety equipment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
