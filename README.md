@@ -67,6 +67,7 @@ pip install -r requirements.txt
 
 Download `best_vgg16_model.h5` from the link below and place it in the `models/` folder:
 
+https://drive.google.com/drive/folders/1pvoso_4FxaeHRvG4OpNmtF9Z7D1wXkR5?usp=sharing
 
 ### Step 4: Run the Flask App
 
